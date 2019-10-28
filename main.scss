@@ -1,4 +1,4 @@
-$jumbotron-bg: transparent;
+$jumbotron-bg: #a9a5a559;
 $jumbotron-color: #ffffff; 
 
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -6,4 +6,15 @@ $jumbotron-color: #ffffff;
 body{
     background-image: url(../img/images.jpg);
     background-size: cover;
+}
+
+#Info{
+    display: flex;
+    align-items: center;
+}
+
+#Icon{
+    text-align: center;
+    font-size: 50px;
+    height: 25px;
 }

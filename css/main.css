@@ -4550,8 +4550,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  color: #d4d3d3;
-  background-color: transparent;
+  color: #ffffff;
+  background-color: #a9a5a559;
   border-radius: 0.3rem;
 }
 @media (min-width: 576px) {
@@ -9659,6 +9659,17 @@ h3 {
 body {
   background-image: url(../img/images.jpg);
   background-size: cover;
+}
+
+#Info {
+  display: flex;
+  align-items: center;
+}
+
+#Icon {
+  text-align: center;
+  font-size: 50px;
+  height: 25px;
 }
 
 /*# sourceMappingURL=main.css.map */
