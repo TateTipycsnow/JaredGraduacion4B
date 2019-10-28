@@ -1,8 +1,9 @@
 $jumbotron-bg: transparent;
-$jumbotron-color: #fff; 
+$jumbotron-color: #ffffff; 
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
 body{
-    background-image: url(img/images.jpg);
+    background-image: url(../img/images.jpg);
+    background-size: cover;
 }
