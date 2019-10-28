@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/all.min.css">
     <title>Graduacion</title>
 </head>
 <body>
@@ -22,23 +23,81 @@
         </div>
     </nav>
 
-    <section class="container-fluid">
-        <section class="row">
+    <section class="container">
+        <div class="row">
             <section class="col-md-6 col-sm-12">
                 <div class="jumbotron">
                     <h1 class="display-4">Bienvenidos</h1>
                     <p class="lead">Ser bienvenidos a la pagina de invitacion, de la graduacion del grupo 4B.</p>
+                    <hr class="my-2">
+                    <h1 class="display-4">Precios</h1>
+                    <p class="lead">Precio por mesa:
+                        <ul>
+                            <ol>Estandar: $2000</ol>
+                            <ol>Premium: $2500</ol>
+                            <ol>Precio por cada silla extra: $150</ol>
+                        </ul>
+                    </p>
+                    <hr class="my-2">
+                    <p>Registrarse y realizar la compra de mesa(s) por cada estudiante. Se le abra entregado un codigo.</p>
                 </div>
             </section>
+
             <section class="col-md-6 col-sm-12">
                 <div class="jumbotron">
-                    <h1 class="display-4">Hello, world!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                    <h1 class="display-4">Registro</h1>
+                    <p class="lead">Registrarse primero para elegir paquete</p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-id-card"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Alumno" aria-label="Alumno" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                    <p></p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-at"></i>
+                                </span>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                    <p></p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-user-circle"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                    <p></p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                    <hr class="my-2">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Registro</a>
                 </div>
-        </section>
+            </section>
+        </div>
     </section>
+
+    
+
 </body>
 </html>
