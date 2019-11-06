@@ -13,14 +13,43 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <script src="js/jquery-3.4.1.min.js"></script>
-
     <script>
-        $boton = $("button");
-        $boton.on("click", function(evento){
-            evento.preventDefault();
-            var usuario = $('[name] = "usuario"');
-            var contrasena = $('[name] = "password"');
-        })
+        $(function(){
+            $boton = $("button");
+            $spin = $(".fa-spinner");
+            $boton.on("click", function(evento){
+                evento.preventDefault();
+
+                $boton.prop("disabled", true);
+                $spin.fadeIn();
+                
+                var usuario = $('[name="usuario"]').val();
+                var contrasena = $('[name="password"]').val();
+                
+                $.ajax({
+                    url: "resultado.php",
+                    method: "POST",
+                    dataType: "json",
+                    data:{
+                        usuario: usuario,
+                        password: contrasena
+                    }
+                })
+                .done(function(informacion) {
+                    var json = informacion;
+
+                    console.log(json);
+                    $boton.prop("disabled", false);
+                    $spin.fadeOut();
+                    if(json.codigo == "0"){
+                        $("#masaje").html(json.mensaje);
+                    }
+                    else if(json.codigo == "1"){
+                        window.location.href = "vip.php";
+                    }
+                });
+            });  
+        });
     </script>
     
     <style>
@@ -46,6 +75,9 @@
                     <button class="btn btn-primary">Enviar datos</button>
 
                     <i class="fas fa-spinner fa-pulse"></i>
+                    <div id="masaje">
+
+                    </div>
                 </form>
             </div>
         </section>

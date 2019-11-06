@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Resultado</title>
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-
-    <?php
+<?php
     include("conexion.php");
     $usuario = $_POST["usuario"];
     $password = hash("whirlpool",$_POST["password"]);
 
-    $statement = "SELECT nombre,contrasena
+    $statement = "SELECT id, nombre
                   FROM usuarios
                   WHERE contrasena = '$password'
                   AND nombre = '$usuario'";
@@ -21,13 +12,19 @@
     
     if($resultado->num_rows > 0){
         session_start();
+        $_SESSION["datosUsuario"] = mysqli_fetch_assoc($resultado);
         $_SESSION["usuario"] = $usuario;
-        echo "<h1 class = \"text-sucess\"> Bienvenid@ ", $usuario, "</h1>";
+        $datos = [
+            "mensaje" => "<p class = \"text-sucess\"> Bienvenid@ ", $usuario, "</p>",
+            "codigo" => "1"
+        ];
     }
     else{
-        echo "<h1 class = \"text-danger\"> Usuario o contraseña incorrecto </h1>";
+        $datos = [
+            "mensaje" => "<p class = \"text-danger\"> Usuario o contraseña incorrecto </p>",
+            "codigo" => "0"
+        ];
     }
-    ?>
 
-</body>
-</html>
+    echo json_encode($datos);
+?>
