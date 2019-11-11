@@ -9656,11 +9656,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
-body {
-  background-image: url(../img/images.jpg);
-  background-size: cover;
-}
-
+/*body{
+    background-image: url(../img/images.jpg);
+    background-size: cover;
+}*/
 #Info {
   display: flex;
   align-items: center;

@@ -21,7 +21,7 @@
     }
     else{
         $datos = [
-            "mensaje" => "<p class = \"text-danger\"> Usuario o contraseña incorrecto </p>",
+            "mensaje" => "<p class = \"text-danger\"> Usuario o contraseña incorrectos! </p>",
             "codigo" => "0"
         ];
     }
