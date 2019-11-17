@@ -67,7 +67,7 @@
     <section class="salon">
         <?php
         include("procesarPlantillas.php");
-        echo $mesa;
+        echo $mesas;
         ?>
     </section>
     <script>

@@ -1,10 +1,37 @@
 <?php
+session_start();
+$idUsuario = $_SESSION["datosUsuario"]["id"];
+
+include("conexion.php");
+$mesas = "";
+
 $plantillaMesa = file_get_contents("templates/mesa.html");
 $plantillaSilla = file_get_contents("templates/silla.html");
 
-$sillas = sprintf($plantillaSilla, 1, "silla reservada", "title=\"Esta silla ya la tiene Doña Mary!\"");
-$sillas .= sprintf($plantillaSilla, 2, "", "");
-$sillas = sprintf($plantillaSilla, 3, "silla reservada", "title=\"Esta silla ya la tiene Don Mario!\"");
+$statementMesas = "SELECT Id, numero
+                   FROM mesas";
+$resultadoMesas = $conexionDB->query($statementMesas);
 
-$mesa = sprintf($plantillaMesa, 1, $sillas);
+foreach($resultadoMesas as $fila){
+    $sillas = "";
+    $idMesa = $fila["Id"];
+
+    $statementSillas = "SELECT S.id, S.posicion, R.paquete, U.nombre
+                        FROM sillas S
+                        LEFT JOIN reservaciones R ON R.idUsuario = $idUsuario AND R.idSilla = S.id
+                        LEFT JOIN usuarios U ON U.id = R.idUsuario
+                        WHERE Mesa_Id = $idMesa";
+    $resultadoSillas = $conexionDB->query($statementSillas);
+
+    foreach($resultadoSillas as $fila){
+        $nombre = $fila["nombre"];
+
+        $posicion = $fila["posicion"];
+        $reservada = $fila["paquete"] ? "silla-reservada" : "";
+        $mensaje = $nombre ? "title=\"Esta silla ya la tiene $nombre!\"" : "";
+
+        $sillas .=  sprintf($plantillaSilla, $posicion, $reservada, $mensaje);
+    }
+    $mesas .= sprintf($plantillaMesa, $idMesa, $sillas);
+}
 ?>
