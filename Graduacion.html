@@ -24,7 +24,31 @@
             </ul>
         </div>
     </nav>
-    
+
+    <section class="container">
+        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="2000">
+                    <img src="img/graduacion.jpg" class="d-block w-100 image-responsive" alt="...">
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                    <img src="img/graduacion1.jpg" class="d-block w-100 image-responsive" alt="...">
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                    <img src="img/graduacion2.jpg" class="d-block w-100 image-responsive" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
     <section class="container">
         <div class="row">
             <section class="col-md-6 col-sm-12" id="Info">
@@ -49,79 +73,38 @@
                 <div class="jumbotron">
                     <h1 class="display-4">Registro</h1>
                     <p class="lead">Registrarse primero para elegir paquete</p>
-                    <form class="form-inline">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="fas fa-id-card"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Alumno" aria-label="Alumno" aria-describedby="basic-addon1">
-                        </div>
-                    </form>
-                    <p></p>
-                    <form class="form-inline">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="fas fa-at"></i>
-                                </span>
-                            </div>
-                            <input type="email" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
-                        </div>
-                    </form>
-                    <p></p>
-                    <form class="form-inline">
+                    <form action="registroProceso.php" method="POST" class="form-inline">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fas fa-user-circle"></i>
                                 </span>
+                                <input type="text" class="form-control" placeholder="usuario" aria-label="usuario" aria-describedby="basic-addon1" name="usuario">
                             </div>
-                            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
                         </div>
-                    </form>
-                    <p></p>
-                    <form class="form-inline">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            <input type="password" class="form-control" placeholder="contrasena" aria-label="contrasena" aria-describedby="basic-addon1" name="contrasena">
                         </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-at"></i>
+                                </span>
+                            </div>
+                            <input type="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="basic-addon1" name="email">
+                        </div>
+                        <button class="btn btn-primary">Registrarse</button>
                     </form>
                     <hr class="my-2">
                     <a class="btn btn-primary btn-lg" href="#" role="button">Registro</a>
                 </div>
             </section>
         </div>
-    </section>
-    <br>
-    <section class="container">
-        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-interval="2000">
-                    <img src="img/graduacion.jpg" class="d-block w-100 image-responsive" alt="...">
-                </div>
-                <div class="carousel-item" data-interval="2000">
-                    <img src="img/graduacion1.jpg" class="d-block w-100 image-responsive" alt="...">
-                </div>
-                <div class="carousel-item" data-interval="2000">
-                    <img src="img/graduacion2.jpg" class="d-block w-100 image-responsive" alt="...">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-        <br>
     </section>
 </body>
 </html>

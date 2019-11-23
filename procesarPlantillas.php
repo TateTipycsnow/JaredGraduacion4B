@@ -18,19 +18,20 @@ foreach($resultadoMesas as $fila){
 
     $statementSillas = "SELECT S.id, S.posicion, R.paquete, U.nombre
                         FROM sillas S
-                        LEFT JOIN reservaciones R ON R.idUsuario = $idUsuario AND R.idSilla = S.id
+                        LEFT JOIN reservaciones R ON R.idSilla = S.id
                         LEFT JOIN usuarios U ON U.id = R.idUsuario
                         WHERE Mesa_Id = $idMesa";
     $resultadoSillas = $conexionDB->query($statementSillas);
 
     foreach($resultadoSillas as $fila){
+        $idSilla = $fila["id"];
         $nombre = $fila["nombre"];
 
         $posicion = $fila["posicion"];
         $reservada = $fila["paquete"] ? "silla-reservada" : "";
         $mensaje = $nombre ? "title=\"Esta silla ya la tiene $nombre!\"" : "";
 
-        $sillas .=  sprintf($plantillaSilla, $posicion, $reservada, $mensaje);
+        $sillas .=  sprintf($plantillaSilla, $posicion, $reservada, $mensaje, $idSilla);
     }
     $mesas .= sprintf($plantillaMesa, $idMesa, $sillas);
 }

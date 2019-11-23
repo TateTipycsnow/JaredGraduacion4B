@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>reservaciones</title>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <style>
@@ -70,9 +70,41 @@
         echo $mesas;
         ?>
     </section>
+    
     <script>
+        var idSilla = 0;
         $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#ventanaConfirmacion").modal({show: false});
+
+            $(".silla").on("click", function(){
+                var reservada = $(this).hasClass("silla-reservada");
+                if(!reservada){
+                    idSilla = $(this).data("id");
+                    $("#ventanaConfirmacion").modal("show");
+                }
+                else{
+
+                }
+            });
+
+            $("#btnCancelar").on("click", function(){
+                $("#ventanaConfirmacion").modal("hide");
+            });
+            
+            $("#btnAceptar").on("click", function(){
+                $.ajax({
+                    url: "confirmarReservacion.php",
+                    method: "POST",
+                    data:{
+                        silla: idSilla;
+                    }
+                })
+                .done(function(){
+
+                });
+            });
+
         });
     </script>
 </body>
