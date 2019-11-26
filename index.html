@@ -10,22 +10,22 @@
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="">
             <img src="img/cintillo-web.png" height="30" class="d-inline-block align-top" alt="">
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="login.php">Login</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section class="container">
+    <section class="container" id="CarouselPrincipal">
         <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-interval="2000">
@@ -79,8 +79,8 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="fas fa-user-circle"></i>
                                 </span>
-                                <input type="text" class="form-control" placeholder="usuario" aria-label="usuario" aria-describedby="basic-addon1" name="usuario">
                             </div>
+                            <input type="text" class="form-control" placeholder="usuario" aria-label="usuario" aria-describedby="basic-addon1" name="usuario">
                         </div>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -101,7 +101,6 @@
                         <button class="btn btn-primary">Registrarse</button>
                     </form>
                     <hr class="my-2">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Registro</a>
                 </div>
             </section>
         </div>

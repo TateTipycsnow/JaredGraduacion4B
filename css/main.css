@@ -9660,6 +9660,10 @@ h3 {
     background-image: url(../img/images.jpg);
     background-size: cover;
 }*/
+#CarouselPrincipal img {
+  height: 500px;
+}
+
 #Info {
   display: flex;
   align-items: center;

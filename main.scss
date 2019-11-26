@@ -1,5 +1,5 @@
 $jumbotron-bg: #a9a5a559;
-$jumbotron-color: #ffffff; 
+$jumbotron-color: #ffffff;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
@@ -7,6 +7,10 @@ $jumbotron-color: #ffffff;
     background-image: url(../img/images.jpg);
     background-size: cover;
 }*/
+
+#CarouselPrincipal img{
+    height: 500px;
+}
 
 #Info{
     display: flex;
