@@ -60,6 +60,19 @@
 
 </head>
 <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/cintillo-web.png" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="NavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <section class="container">
         <section class="row">
             <div class="col-md-6">
@@ -72,7 +85,8 @@
                         <label for="">Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
-                    <button class="btn btn-primary">Enviar datos</button>
+                    <button class="btn btn-primary">Iniciar sesion</button>
+                    <a href="registro.php" class="btn btn-primary" type="button">Registrarse</a>
 
                     <i class="fas fa-spinner fa-pulse"></i>
                     <div id="masaje">

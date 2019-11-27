@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>reservaciones</title>
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/all.min.css">
@@ -64,6 +64,26 @@
     </style>
 </head>
 <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-light">
+        <a class="navbar-brand" href="vip.php">
+            <img src="img/cintillo-web.png" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="NavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="vip.php">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="vip.php" class="nav-link">Comprar Paquete</a>
+                </li>
+            </ul>
+            <a href="login.php" placeolder="Search">
+                <i class="fas fa-sign-out-alt"></i>
+                Salir
+            </a>
+        </div>
+    </nav>
+
     <section class="salon">
         <?php
         include("procesarPlantillas.php");
@@ -71,19 +91,40 @@
         ?>
     </section>
     
+    <div class="modal" id="ventanaConfirmacion"tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar reservacion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Confirmar reservacion?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script>
         var idSilla = 0;
+
         $(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-            $("#ventanaConfirmacion").modal({show: false});
+            $('[data-toogle="tooltip"]').tooltip();
+            $("#ventanaConfirmacion").modal({show:false});
 
             $(".silla").on("click", function(){
                 var reservada = $(this).hasClass("silla-reservada");
+
                 if(!reservada){
                     idSilla = $(this).data("id");
                     $("#ventanaConfirmacion").modal("show");
-                }
-                else{
+                }else{
 
                 }
             });
@@ -91,20 +132,19 @@
             $("#btnCancelar").on("click", function(){
                 $("#ventanaConfirmacion").modal("hide");
             });
-            
+
             $("#btnAceptar").on("click", function(){
                 $.ajax({
                     url: "confirmarReservacion.php",
                     method: "POST",
                     data:{
-                        silla: idSilla;
+                        silla: idSilla
                     }
                 })
                 .done(function(){
-
+                    
                 });
             });
-
         });
     </script>
 </body>

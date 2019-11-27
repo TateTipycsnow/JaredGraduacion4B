@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <title>VIP</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/all.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
@@ -75,13 +76,13 @@
     });
     </script>
     <style>
-        img{
+        #paquetes img{
             width: 25%;
         }
         aside.indicadores{
             text-align: center;
             position: fixed;
-            top: 0;
+            top: 10;
             left: 0;
         }
         aside.indicadores img{
@@ -90,8 +91,28 @@
     </style>
 </head>
 <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-light">
+        <a class="navbar-brand" href="vip.php">
+            <img src="img/cintillo-web.png" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="NavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="vip.php">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="reservaciones.php" class="nav-link">Reservar Lugares</a>
+                </li>
+            </ul>
+            <a href="login.php" placeolder="Search">
+                <i class="fas fa-sign-out-alt"></i>
+                Salir
+            </a>
+        </div>
+    </nav>
+
     <section class="container-fluid">
-        <section class="row">
+        <section class="row" id="paquetes">
             <div class="col-md-12">
                 <h3>Selecciona el paquete para la cena</h3>
             </div>
