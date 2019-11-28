@@ -60,6 +60,7 @@
             .done(function(){
                 $(this).prop("disabled",false);
                 $("#modalConfirmar").modal("hide");
+                window.location.href = "vip.php"
             });
         });
         $.ajax({

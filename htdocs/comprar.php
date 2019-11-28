@@ -72,6 +72,7 @@ if($_POST["paquete3"] > 0){
     echo "resultado de insertar paquete3: ".$resultado;
 }
 
+echo json_encode($lugaresTotales);
 echo "<p>Lugares Comprados </p>";
 
 echo "<p>".$_POST["paquete1"]."</p>";

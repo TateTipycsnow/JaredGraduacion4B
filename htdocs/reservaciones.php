@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <style>
         footer{
-            background-color: burlywood ;
+            background-color: burlywood;
         }
         #MesaComida{
             text-align: center;
@@ -90,14 +90,14 @@
             </a>
         </div>
     </nav>
-
+    
     <section class="salon">
         <?php
         include("procesarPlantillas.php");
         echo $mesas;
         ?>
     </section>
-    
+
     <div class="modal" id="ventanaConfirmacion" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
