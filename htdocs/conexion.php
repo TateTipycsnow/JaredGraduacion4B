@@ -8,6 +8,4 @@ if($conexionDB->connect_error){
 else{
     echo "Conexion exitosa en la base de datos";
 }*/
-
-
 ?>
