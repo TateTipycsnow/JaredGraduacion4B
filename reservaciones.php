@@ -6,9 +6,15 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/all.min.css">
     <style>
+        footer{
+            background-color: burlywood ;
+        }
+        #MesaComida{
+            text-align: center;
+        }
     .salon{
         margin: 41px;
     }
@@ -20,6 +26,7 @@
         width: 150px;
         height: 150px;
         position: relative;
+        display: inline-block;
     }
     .mesa{
         font-size: 6em;
@@ -91,7 +98,7 @@
         ?>
     </section>
     
-    <div class="modal" id="ventanaConfirmacion"tabindex="-1" role="dialog">
+    <div class="modal" id="ventanaConfirmacion" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -104,12 +111,24 @@
                     <p>¿Confirmar reservacion?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelar">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnAceptar">Aceptar</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        <section class="container">
+            <section class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4" id="MesaComida">
+                    <p>Bufette</p>
+                </div>
+                <div class="col-md-4"></div>
+            </section>
+        </section>
+    </footer>
     
     <script>
         var idSilla = 0;
@@ -122,10 +141,9 @@
                 var reservada = $(this).hasClass("silla-reservada");
 
                 if(!reservada){
-                    idSilla = $(this).data("id");
+                    idSilla = $(this).attr("data_id");
                     $("#ventanaConfirmacion").modal("show");
                 }else{
-
                 }
             });
 
@@ -142,7 +160,8 @@
                     }
                 })
                 .done(function(){
-                    
+                    $("#ventanaConfirmacion").modal("hide");
+                    window.location.href = "reservaciones.php";
                 });
             });
         });

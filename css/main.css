@@ -9664,6 +9664,10 @@ h3 {
   height: 500px;
 }
 
+footer {
+  background-color: burlywood;
+}
+
 #Info {
   display: flex;
   align-items: center;
