@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-11-2019 a las 04:52:07
+-- Tiempo de generación: 04-12-2019 a las 03:21:21
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -71,15 +71,6 @@ CREATE TABLE `reservaciones` (
   `paquete` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `reservaciones`
---
-
-INSERT INTO `reservaciones` (`id`, `idUsuario`, `idSilla`, `paquete`) VALUES
-(1, 12, 1, 1),
-(2, 5, 3, 1),
-(3, 15, 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -88,7 +79,7 @@ INSERT INTO `reservaciones` (`id`, `idUsuario`, `idSilla`, `paquete`) VALUES
 
 CREATE TABLE `sillas` (
   `id` int(11) NOT NULL,
-  `Mesa_Id` int(11) DEFAULT NULL,
+  `idMesa` int(11) DEFAULT NULL,
   `posicion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -96,7 +87,7 @@ CREATE TABLE `sillas` (
 -- Volcado de datos para la tabla `sillas`
 --
 
-INSERT INTO `sillas` (`id`, `Mesa_Id`, `posicion`) VALUES
+INSERT INTO `sillas` (`id`, `idMesa`, `posicion`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 1, 3),
@@ -281,19 +272,6 @@ CREATE TABLE `usuarios` (
   `paquete` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nombre`, `contrasena`, `email`, `lugares`, `paquete`) VALUES
-(1, 'Ricardo', '3a0e147df0c7a60865e795fda8ba3af75005d087a61e1d31c65a5a232080af67f64cbf14d4253cf90ef77b862728891e9790219d89ad96dc9307ae4ccdfdb549', 'Shato@mail.com', 0, NULL),
-(2, 'Brian', 'bae8fb41bb270d333af0f2f03ab447a1c8adb65acb33fdc23177f4348c3c8b0df02ee9a442e670a937de0672e2293a7aff0ce2de34c31a61604d7c89bfe8e2f8', 'Brian@mail.com', 0, NULL),
-(3, 'Sebastian', '036a8814df0f465834b36f0fa04a4992ef86690e1db050e3300384bcd99560d6e7ef47852abc88b75cc56140717ebda00c3b2c329fad8881f82a80458400b540', 'sebas@mail.com', 0, NULL),
-(4, 'Eva', '895e6949569345854f878cfed39f64c1b1daacc80e07912a659dfa368b23222c1875047c8e1050779c55dd0f9176f5d10f05c098f0dfbc365017ff5598ef02f2', 'Conhi@mail.com', 0, NULL),
-(5, 'Jared', '7fd4cc66f7c93734e8353e15514921e341614e97ac46bcbf3359f706a5896150ba721b09d3ff39551b696c47fa65dc77a38a12d006080d1a9b662a6b3de5f3fe', 'jared@hotmail.com', 0, NULL),
-(6, 'Miriam', '09ec70e02451db90279ae8e1241a31c4431977933c0023d104957ead29b43edcfd7adb33aa1e05568438f0fff58a1fa99247061d3cd1fc1ec0a3290abc3f0dbb', 'Miri@mail.com', 0, NULL),
-(15, 'root', '38ab972da3874f33ab1d3ccb503b9b34bf9d6af26f9f4cd942319c89e4ffac86523b37e7c7e82dc7f14250a38ef1b5257409ce49ebb231663dde785cc6ae4325', '', 2, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -301,32 +279,11 @@ INSERT INTO `usuarios` (`id`, `nombre`, `contrasena`, `email`, `lugares`, `paque
 --
 
 CREATE TABLE `usuarios_paquetes` (
-  `Id` int(11) NOT NULL,
-  `IdUsuario` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `idUsuario` int(11) DEFAULT NULL,
   `paquete` int(11) DEFAULT NULL,
   `lugares` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `usuarios_paquetes`
---
-
-INSERT INTO `usuarios_paquetes` (`Id`, `IdUsuario`, `paquete`, `lugares`) VALUES
-(1, 5, 1, 2),
-(2, 5, 2, 3),
-(3, 5, 3, 4),
-(4, 12, 1, 2),
-(5, 12, 2, 3),
-(6, 12, 3, 3),
-(7, 13, 1, 4),
-(8, 13, 2, 1),
-(9, 13, 3, 3),
-(10, 14, 1, 4),
-(11, 14, 2, 1),
-(12, 14, 3, 2),
-(13, 15, 1, 4),
-(14, 15, 2, 1),
-(15, 15, 3, 2);
 
 --
 -- Índices para tablas volcadas
@@ -360,7 +317,7 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `usuarios_paquetes`
 --
 ALTER TABLE `usuarios_paquetes`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -375,7 +332,7 @@ ALTER TABLE `mesas`
 -- AUTO_INCREMENT de la tabla `reservaciones`
 --
 ALTER TABLE `reservaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `sillas`
 --
@@ -385,12 +342,12 @@ ALTER TABLE `sillas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuarios_paquetes`
 --
 ALTER TABLE `usuarios_paquetes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
