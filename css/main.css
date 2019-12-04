@@ -9656,12 +9656,25 @@ h3 {
     border-color: #dee2e6;
   }
 }
-/*body{
-    background-image: url(../img/images.jpg);
-    background-size: cover;
-}*/
+body {
+  background-image: url(../img/images1.jpg);
+  background-size: cover;
+}
+
 #CarouselPrincipal img {
   height: 500px;
+}
+
+label {
+  color: white;
+}
+
+#paquetes h3 {
+  color: white;
+}
+
+#paquetes h4 {
+  color: white;
 }
 
 footer {

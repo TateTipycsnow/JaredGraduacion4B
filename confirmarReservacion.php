@@ -4,13 +4,13 @@ include("conexion.php");
 
 $idUsuario = $_SESSION["datosUsuario"]["id"];
 $idSilla = $_POST["silla"];
-$sql = "SELECT * FROM usuarios_paquetes WHERE IdUsuario=$idUsuario";
+$sql = "SELECT * FROM usuarios_paquetes WHERE idUsuario=$idUsuario";
 
 $paquete = $conexionDB ->query($sql);
 
 if(mysqli_num_rows($paquete)>0){
     $fila = $paquete->fetch_array(MYSQLI_ASSOC);
-    $_SESSION["usuario"] = $fila["IdUsuario"];
+    $_SESSION["usuario"] = $fila["idUsuario"];
     $_SESSION["paquete"] = $fila["paquete"];
     $_SESSION["lugares"] = $fila["lugares"];
 }else{

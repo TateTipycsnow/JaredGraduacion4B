@@ -51,8 +51,8 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-primary">Registrarse</button>
-                        <a type="button" href="login.php" class="btn btn-primary">Login</a>
+                        <button class="btn btn-dark">Registrarse</button>
+                        <a type="button" href="login.php" class="btn btn-dark">Login</a>
                     </form>
                     <hr class="my-2">
                 </div>

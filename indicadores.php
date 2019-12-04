@@ -3,9 +3,9 @@ session_start();
 $idUsuario = $_SESSION["datosUsuario"]["id"];
 
 include("conexion.php");
-$statement = "SELECT IdUsuario, paquete, lugares
+$statement = "SELECT idUsuario, paquete, lugares
               FROM usuarios_paquetes
-              WHERE IdUsuario = $idUsuario";
+              WHERE idUsuario = $idUsuario";
 $resultado = $conexionDB->query($statement);
 
 $compras = array();

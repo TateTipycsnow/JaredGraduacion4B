@@ -20,7 +20,7 @@ foreach($resultadoMesas as $fila){
                         FROM sillas S
                         LEFT JOIN reservaciones R ON R.idSilla = S.id
                         LEFT JOIN usuarios U ON U.id = R.idUsuario
-                        WHERE Mesa_Id = $idMesa";
+                        WHERE idMesa = $idMesa";
     $resultadoSillas = $conexionDB->query($statementSillas);
 
     foreach($resultadoSillas as $fila){

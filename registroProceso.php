@@ -53,7 +53,7 @@
                 <div class=\"col-md-4\">
                     <div class=\"jumbotron\">
                         <h2 class=\"display-5\">Registro exitoso</h2>
-                        <a type=\"button\" href=\"login.php\" class=\"btn btn-primary\">Login</a>
+                        <a type=\"button\" href=\"login.php\" class=\"btn btn-dark\">Login</a>
                     </div>
                 </div>
                 <div class=\"col-md-4\"></div>

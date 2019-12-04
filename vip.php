@@ -12,8 +12,6 @@
         ?>
     <meta charset="UTF-8">
     <title>VIP</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/all.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
@@ -90,6 +88,8 @@
             width: 30px;
         }
     </style>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/all.min.css">
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-light">
@@ -117,26 +117,26 @@
             <div class="col-md-12">
                 <h3>Selecciona el paquete para la cena</h3>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="paquetes">
                 <h4>Basico</h4>
                 <img src="img/Platillo1.png" alt="platillo1">
                 <input type="number" id="paquete1" value="0" min="0" max="10">
                 <h4 data-precio="100">$0</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="paquetes">
                 <h4>Medio</h4>
                 <img src="img/Platillo2.png" alt="platillo2">
                 <input type="number" id="paquete2" value="0" min="0" max="10">
                 <h4 data-precio="500">$0</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" id="paquetes">
                 <h4>Premium</h4>
                 <img src="img/Platillo3.png" alt="platillo3">
                 <input type="number" id="paquete3" value="0" min="0" max="10">
                 <h4 data-precio="1000">$0</h4>
             </div>
             <div class="col-md-12">
-                <button id="btnConfirmar" class="btn btn-primary">Confirmar</button>
+                <button id="btnConfirmar" class="btn btn-dark">Confirmar</button>
             </div>
         </section>
     </section>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnAceptar">Aceptar</button>
+                    <button type="button" class="btn btn-outline-dark" id="btnAceptar">Aceptar</button>
                 </div>
             </div>
         </div>

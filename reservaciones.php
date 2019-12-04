@@ -12,11 +12,19 @@
         footer{
             background-color: burlywood;
         }
+        #Contador1 h1{
+            color: white;
+        }
+        #Contador1{
+            text-align: center;
+            font-size: 20px;
+        }
         #MesaComida{
             text-align: center;
         }
     .salon{
         margin: 41px;
+        color: white;
     }
     .silla-reservada{
         color: red;
@@ -90,6 +98,17 @@
             </a>
         </div>
     </nav>
+
+    <section class="container">
+        <section class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" id="Contador1" data-contador="0">
+                <h1>Lugares Restantes</h1>
+                <p class="badge badge-danger" id="Contador">0</p>
+            </div>
+            <div class="col-md-4"></div>
+        </section>
+    </section>
     
     <section class="salon">
         <?php
@@ -112,7 +131,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelar">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnAceptar">Aceptar</button>
+                    <button type="button" class="btn btn btn-dark" id="btnAceptar">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -132,18 +151,33 @@
     
     <script>
         var idSilla = 0;
+        var lugares = 0;
 
         $(function() {
             $('[data-toogle="tooltip"]').tooltip();
             $("#ventanaConfirmacion").modal({show:false});
+            $.ajax({
+                url: "contador.php",
+                method: "GET",
+                dataType : "json"
+            })
+            .done(function(Contador){
+                dataContador=document.getElementById('Contador1');
+                dataContador.dataset.contador = Contador[0].Resultado;
+                console.log(Contador);
+                $("#Contador1 p").text(Contador[0].Resultado);
+            });
 
             $(".silla").on("click", function(){
                 var reservada = $(this).hasClass("silla-reservada");
+                dataContador=document.getElementById('Contador1');
+                var lugares = dataContador.dataset.contador
 
-                if(!reservada){
-                    idSilla = $(this).attr("data_id");
-                    $("#ventanaConfirmacion").modal("show");
-                }else{
+                if(lugares > 0){
+                    if(!reservada){
+                        idSilla = $(this).attr("data_id");
+                        $("#ventanaConfirmacion").modal("show");
+                        }
                 }
             });
 

@@ -85,8 +85,8 @@
                         <label for="">Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
-                    <button class="btn btn-primary">Iniciar sesion</button>
-                    <a href="registro.php" class="btn btn-primary" type="button">Registrarse</a>
+                    <button class="btn btn-dark">Iniciar sesion</button>
+                    <a href="registro.php" class="btn btn-dark" type="button">Registrarse</a>
 
                     <i class="fas fa-spinner fa-pulse"></i>
                     <div id="masaje">

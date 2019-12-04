@@ -8,7 +8,7 @@ if($_POST["paquete1"] > 0){
     $lugares = $_POST["paquete1"];
 
     $statementVerificarDuplicados = "SELECT * FROM usuarios_paquetes
-                                     WHERE IdUsuario = $idUsuario
+                                     WHERE idUsuario = $idUsuario
                                      AND paquete = 1";
     $resultadoVerificarDuplicados = $conexionDB->query($statementVerificarDuplicados);
     $duplicados = $resultadoVerificarDuplicados->num_rows;
@@ -16,7 +16,7 @@ if($_POST["paquete1"] > 0){
     if($duplicados == 0){
         $statement = "
         INSERT INTO usuarios_paquetes
-        (IdUsuario, paquete, lugares)
+        (idUsuario, paquete, lugares)
         Values
         ($idUsuario, 1, $lugares)
         ";
@@ -31,7 +31,7 @@ if($_POST["paquete2"] > 0){
     $lugares = $_POST["paquete2"];
 
     $statementVerificarDuplicados = "SELECT * FROM usuarios_paquetes
-                                     WHERE IdUsuario = $idUsuario
+                                     WHERE idUsuario = $idUsuario
                                      AND paquete = 2";
     $resultadoVerificarDuplicados = $conexionDB->query($statementVerificarDuplicados);
     $duplicados = $resultadoVerificarDuplicados->num_rows;
@@ -39,7 +39,7 @@ if($_POST["paquete2"] > 0){
     if($duplicados == 0){
         $statement = "
         INSERT INTO usuarios_paquetes
-        (IdUsuario, paquete, lugares)
+        (idUsuario, paquete, lugares)
         Values
         ($idUsuario, 2, $lugares)
         ";
@@ -54,7 +54,7 @@ if($_POST["paquete3"] > 0){
     $lugares = $_POST["paquete3"];
 
     $statementVerificarDuplicados = "SELECT * FROM usuarios_paquetes
-                                     WHERE IdUsuario = $idUsuario
+                                     WHERE idUsuario = $idUsuario
                                      AND paquete = 3";
     $resultadoVerificarDuplicados = $conexionDB->query($statementVerificarDuplicados);
     $duplicados = $resultadoVerificarDuplicados->num_rows;
@@ -62,7 +62,7 @@ if($_POST["paquete3"] > 0){
     if($duplicados == 0){
         $statement = "
         INSERT INTO usuarios_paquetes
-        (IdUsuario, paquete, lugares)
+        (idUsuario, paquete, lugares)
         Values
         ($idUsuario, 3, $lugares)
         ";

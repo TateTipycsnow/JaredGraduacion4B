@@ -4,12 +4,24 @@ $jumbotron-color: #ffffff;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 body{
-    background-image: url(../img/images.jpg);
+    background-image: url(../img/images1.jpg);
     background-size: cover;
 }
 
 #CarouselPrincipal img{
     height: 500px;
+}
+
+label{
+    color: white;
+}
+
+#paquetes h3{
+    color: white;
+}
+
+#paquetes h4{
+    color: white;
 }
 
 footer{
