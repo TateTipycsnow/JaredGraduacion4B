@@ -4,28 +4,31 @@ include("conexion.php");
 
 $idUsuario = $_SESSION["datosUsuario"]["id"];
 $idSilla = $_POST["silla"];
-$sql = "SELECT * FROM usuarios_paquetes WHERE idUsuario=$idUsuario";
+$paquete = $_POST["paquete"];
 
-$paquete = $conexionDB ->query($sql);
+$statementPaquete = "SELECT(SELECT lugares FROM usuarios_paquetes WHERE paquete = $paquete AND idUsuario = $idUsuario)
+                     -(SELECT COUNT(*) FROM reservaciones WHERE paquete = $paquete AND idUsuario = $idUsuario) as Resultado";
 
-if(mysqli_num_rows($paquete)>0){
-    $fila = $paquete->fetch_array(MYSQLI_ASSOC);
-    $_SESSION["usuario"] = $fila["idUsuario"];
-    $_SESSION["paquete"] = $fila["paquete"];
-    $_SESSION["lugares"] = $fila["lugares"];
-}else{
-    echo "No hay resultados";
+$resultadoPaquete = $conexionDB ->query($statementPaquete);
+
+if(mysqli_num_rows($resultadoPaquete)>0){
+    $fila = $resultadoPaquete->fetch_array(MYSQLI_ASSOC);
+    $_SESSION["paquete"] = $fila["Resultado"];
 }
 
-$paquete1 = $_SESSION["paquete"];
 
-$statement = "INSERT INTO reservaciones (idSilla,idUsuario,paquete) VALUES ('$idSilla','$idUsuario','$paquete1')";
-$resultado = $conexionDB ->query($statement);
+$Lugares = $_SESSION["paquete"];
 
-if($resultado){
-    echo "Registro exitoso";
+if($Lugares != 0){
+    $statement = "INSERT INTO reservaciones (idSilla,idUsuario,paquete) VALUES ('$idSilla','$idUsuario','$paquete')";
+    $resultado = $conexionDB ->query($statement);
+     
+    if($resultado){
+        echo "Registro exitoso";
+    }
+    else{
+        echo "Error";
+    }
 }
-else{
-    echo "Error";
-}
+
 ?>

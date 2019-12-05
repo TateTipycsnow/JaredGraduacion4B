@@ -27,9 +27,19 @@ foreach($resultadoMesas as $fila){
         $idSilla = $fila["id"];
         $nombre = $fila["nombre"];
 
+        $paqueteVal = $fila["paquete"];
+
+        if($paqueteVal==1){
+            $paquete = "Basico";
+        }elseif($paqueteVal==2){
+            $paquete = "Medio";
+        }elseif($paqueteVal==3){
+            $paquete = "Premium";
+        }
+
         $posicion = $fila["posicion"];
         $reservada = $fila["paquete"] ? "silla-reservada" : "";
-        $mensaje = $nombre ? "title=\"Esta silla ya la tiene $nombre!\"" : "";
+        $mensaje = $nombre ? "title=\"Esta silla ya la tiene $nombre y el paquete es $paquete!\"" : "";
 
         $sillas .=  sprintf($plantillaSilla, $posicion, $reservada, $mensaje, $idSilla);
     }

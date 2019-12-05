@@ -127,7 +127,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Confirmar reservacion?</p>
+                    <p>Seleccione el paquete que desea usar</p>
+                    <select name="" id="SelectorPaquete">
+                        <option value="1">Basico</option>
+                        <option value="2">Medio</option>
+                        <option value="3">Premium</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelar">Cancelar</button>
@@ -142,7 +147,12 @@
             <section class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4" id="MesaComida">
-                    <p>Bufette</p>
+                    <p>Seleccione el paquete que desea usar</p>
+                    <select name="selectorPaquete" id="selectorPaquete">
+                        <option value="1">Basico</option>
+                        <option value="2">Medio</option>
+                        <option value="3">Premium</option>
+                    </select>
                 </div>
                 <div class="col-md-4"></div>
             </section>
@@ -152,6 +162,7 @@
     <script>
         var idSilla = 0;
         var lugares = 0;
+        var nPaquete = 0;
 
         $(function() {
             $('[data-toogle="tooltip"]').tooltip();
@@ -171,13 +182,13 @@
             $(".silla").on("click", function(){
                 var reservada = $(this).hasClass("silla-reservada");
                 dataContador=document.getElementById('Contador1');
-                var lugares = dataContador.dataset.contador
+                var lugares = dataContador.dataset.contador;
 
                 if(lugares > 0){
                     if(!reservada){
                         idSilla = $(this).attr("data_id");
                         $("#ventanaConfirmacion").modal("show");
-                        }
+                    }
                 }
             });
 
@@ -186,11 +197,13 @@
             });
 
             $("#btnAceptar").on("click", function(){
+                nPaquete = SelectorPaquete.options[SelectorPaquete.selectedIndex].value;
                 $.ajax({
                     url: "confirmarReservacion.php",
                     method: "POST",
                     data:{
-                        silla: idSilla
+                        silla: idSilla,
+                        paquete: nPaquete
                     }
                 })
                 .done(function(){
