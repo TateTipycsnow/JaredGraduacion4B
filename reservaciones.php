@@ -147,12 +147,7 @@
             <section class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4" id="MesaComida">
-                    <p>Seleccione el paquete que desea usar</p>
-                    <select name="selectorPaquete" id="selectorPaquete">
-                        <option value="1">Basico</option>
-                        <option value="2">Medio</option>
-                        <option value="3">Premium</option>
-                    </select>
+                    <p>Buffete</p>
                 </div>
                 <div class="col-md-4"></div>
             </section>
